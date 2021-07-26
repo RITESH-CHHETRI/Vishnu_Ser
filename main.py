@@ -9,20 +9,20 @@ from dotenv import load_dotenv
 load_dotenv('.env')
 token=os.getenv('token')
 
-#setting up connection to server
-client=commands.Bot(command_prefix="/")
+#setting up connection/instance to server
+bot=commands.Bot(command_prefix="/")
 
-#On ready response
-@client.event
+#On ready response/func
+@bot.event
 async def on_ready():
-    print(f"Successfully connected to {client.user.name}")
+    print(f"Successfully connected to {bot.user.name}")
 #list of banned words
 bannedWords=["beach","bad"]
 
-#On message responses
-@client.event
+#On message responses/func
+@bot.event
 async def on_message(message):
-    if message.author==client.user:
+    if message.author==bot.user:
         return
     if message.content.startswith("hello"):
         await message.channel.send("hi")
@@ -33,5 +33,5 @@ async def on_message(message):
             await message.channel.send("This is a banned word!")
             await message.delete()
 
-    await client.process_commands(message)
-client.run(token)
+    await bot.process_commands(message)
+bot.run(token)
