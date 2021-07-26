@@ -1,13 +1,11 @@
 #discord module
 import discord
 from discord.ext import commands
-#modules to access token
+#module to access token
 import os
-from dotenv import load_dotenv
 
 #getting token
-load_dotenv('.env')
-token=os.getenv('token')
+token=os.getenv('TOKEN')
 
 #setting up connection/instance to server
 bot=commands.Bot(command_prefix="/")
