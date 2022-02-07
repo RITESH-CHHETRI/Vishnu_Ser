@@ -1,6 +1,6 @@
-#discord module
-import discord
-from discord.ext import commands
+#nextcord module
+import nextcord
+from nextcord.ext import commands
 #module to access token
 import os
 
